@@ -80,6 +80,7 @@ task HaplotypeCaller_GATK35_GVCF {
 task HaplotypeCaller_GATK4_VCF {
   input {
     File input_bam
+    File input_bam_index
     File interval_list
     String vcf_basename
     File ref_dict
