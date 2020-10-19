@@ -51,5 +51,6 @@
     "preemptible_tries": 3,
     "agg_preemptible_tries": 3
   },
-  "ExomeGermlineSingleSample.provide_bam_output": true
+  "ExomeGermlineSingleSample.provide_bam_output": true,
+  "ExomeGermlineSingleSample.GenerateSubsettedContaminationResources.pipefail": false
 }
