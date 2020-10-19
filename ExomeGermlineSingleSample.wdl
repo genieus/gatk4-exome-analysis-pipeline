@@ -170,8 +170,8 @@ workflow ExomeGermlineSingleSample {
 
     File? cross_check_fingerprints_metrics = UnmappedBamToAlignedBam.cross_check_fingerprints_metrics
 
-    File selfSM = UnmappedBamToAlignedBam.selfSM
-    Float contamination = UnmappedBamToAlignedBam.contamination
+    File? selfSM = UnmappedBamToAlignedBam.selfSM
+    Float? contamination = UnmappedBamToAlignedBam.contamination
 
     File calculate_read_group_checksum_md5 = AggregatedBamQC.calculate_read_group_checksum_md5
 
