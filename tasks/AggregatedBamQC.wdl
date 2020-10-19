@@ -26,7 +26,7 @@ input {
     String base_name
     String sample_name
     String recalibrated_bam_base_name
-    File haplotype_database_file
+    File? haplotype_database_file
     DNASeqSingleSampleReferences references
     PapiSettings papi_settings
     File? fingerprint_genotypes_file
@@ -63,7 +63,7 @@ input {
       input:
         input_bam = base_recalibrated_bam,
         input_bam_index = base_recalibrated_bam_index,
-        haplotype_database_file = haplotype_database_file,
+        haplotype_database_file = select_first([haplotype_database_file]),
         genotypes = fingerprint_genotypes_file,
         genotypes_index = fingerprint_genotypes_index,
         output_basename = base_name,

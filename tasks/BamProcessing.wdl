@@ -424,6 +424,7 @@ task GenerateSubsettedContaminationResources {
     File contamination_sites_bed
     File contamination_sites_mu
     Int preemptible_tries
+    Boolean pipefail = true
   }
 
   String output_ud = bait_set_name + "." + basename(contamination_sites_ud)
@@ -432,7 +433,7 @@ task GenerateSubsettedContaminationResources {
   String target_overlap_counts = "target_overlap_counts.txt"
 
   command <<<
-    set -e -o pipefail
+    if ~{pipefail}; then set -e -o pipefail; fi
 
     grep -vE "^@" ~{target_interval_list} |
        awk -v OFS='\t' '$2=$2-1' |
